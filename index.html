@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #1e1e2f;
+}
+
+.div-1 {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-2 {
+    width: 320px;
+    padding: 20px;
+    background: #2b2b40;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+#header {
+    grid-column: 1 / -1;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    min-height: 24px;
+}
+
+#text-1 {
+    grid-column: 1 / -1;
+    height: 70px;
+    padding: 0 15px;
+    font-size: 32px;
+    text-align: right;
+    color: rgb(14, 173, 226);
+    background: #1e1e2f;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+}
+
+button {
+    height: 65px;
+    font-size: 22px;
+    color: black;
+    background: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: #4a4a6a;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#slash, #asterisk, #minus, #plus {
+    background:  white;
+    color: rgb(14, 173, 226);
+}
+
+#slash:hover, #asterisk:hover, #minus:hover, #plus:hover {
+    background: #ffaa33;
+}
+
+#clear
+{
+    background:  white;
+    color: rgb(14, 173, 226);
+}
+
+#clear:hover, #percent:hover, #delete:hover {
+    background: #bcbcd0;
+}
+
+/* Beraberdir duymesi */
+#equals {
+    background: #34c759;
+}
+
+#equals:hover {
+    background: #4cd870;
+}
+    </style>
+    <div class="div-1">
+        <div class="div-2">
+            <h1 id="header"></h1>
+            <input type="text" id="text-1">
+            <button id="clear" onclick="OperationCall(id)">C</button>
+            <button id="percent" onclick="OperationCall(id)">%</button>
+            <button id="delete" onclick="OperationCall(id)">x</button>
+            <button id="slash" onclick="OperationCall(id)">/</button>
+            <button id="seven" onclick="DigitCall(id)">7</button>
+            <button id="eight" onclick="DigitCall(id)">8</button>
+            <button id="nine" onclick="DigitCall(id)">9</button>
+            <button id="asterisk" onclick="OperationCall(id)">*</button>
+            <button id="four" onclick="DigitCall(id)">4</button>
+            <button id="five" onclick="DigitCall(id)">5</button>
+            <button id="six" onclick="DigitCall(id)">6</button>
+            <button id="minus" onclick="OperationCall(id)">-</button>
+            <button id="one" onclick="DigitCall(id)">1</button>
+            <button id="two" onclick="DigitCall(id)">2</button>
+            <button id="three" onclick="DigitCall(id)">3</button>
+            <button id="plus" onclick="OperationCall(id)">+</button>
+            <button id="double-zero" onclick="DigitCall(id)">00</button>
+            <button id="zero" onclick="DigitCall(id)">0</button>
+            <button id="dot" onclick="OperationCall(id)">.</button>
+            <button id="equals" onclick="Calc(id)">=</button>
+        </div>
+    </div>
+
+
+    <script>
+            const header = document.getElementById("header");
+            const text = document.getElementById("text-1");
+
+            function DigitCall(id)
+            {
+                let digit = document.getElementById(id).innerText;
+
+                if (text.value === "0")
+                {
+                    text.value = "";
+                if (digit === "00") digit = "0";
+                }
+                text.value += digit;
+            }
+
+            function OperationCall(id)
+            {
+                if(id === "clear")
+                {
+                    text.value = 0;
+                }
+                else if(id === "delete")
+                {
+                    // slice methodu var kecmemisik deye yazmadim
+                }
+                else if(id === "percent")
+                {
+                    //arasdirdim Number adinda interface ile isleyir yazmadim ona gore
+                }
+                else 
+                {
+                    const symbol = document.getElementById(id).innerText;
+                    const last = text.value[text.value.length - 1];
+
+                    if(last === "+" || last === "-" || last === "*" || last === "/" || last === "." || last === "%") return;
+
+                    text.value += symbol;
+                }
+            }
+            function Calc(id)
+            {
+                text.value = eval(text.value);
+            }
+    </script> 
+</body>
+</html>

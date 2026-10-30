@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #1e1e2f;
+}
+
+.div-1 {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-2 {
+    width: 320px;
+    padding: 20px;
+    background: #2b2b40;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+#header {
+    grid-column: 1 / -1;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    min-height: 24px;
+}
+
+#text-1 {
+    grid-column: 1 / -1;
+    height: 70px;
+    padding: 0 15px;
+    font-size: 32px;
+    text-align: right;
+    color: rgb(14, 173, 226);
+    background: #1e1e2f;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+}
+
+button {
+    height: 65px;
+    font-size: 22px;
+    color: black;
+    background: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background: #4a4a6a;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#slash, #asterisk, #minus, #plus {
+    background:  white;
+    color: rgb(14, 173, 226);
+}
+
+#slash:hover, #asterisk:hover, #minus:hover, #plus:hover {
+    background: #ffaa33;
+}
+
+#clear
+{
+    background:  white;
+    color: rgb(14, 173, 226);
+}
+
+#clear:hover, #percent:hover, #delete:hover {
+    background: #bcbcd0;
+}
+
+/* Beraberdir duymesi */
+#equals {
+    background: #34c759;
+}
+
+#equals:hover {
+    background: #4cd870;
+}
