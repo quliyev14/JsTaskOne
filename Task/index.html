@@ -11,9 +11,9 @@
         <div class="div-2">
             <h1 id="header"></h1>
             <input type="text" id="text-1">
-            <button id="clear" onclick="OperationCall(id)">C</button>
-            <button id="percent" onclick="OperationCall(id)">%</button>
-            <button id="delete" onclick="OperationCall(id)">x</button>
+            <button id="clear" onclick="Clear(id)">C</button>
+            <button id="percent" onclick="Percent(id)">%</button>
+            <button id="delete" onclick="Delete(id)">x</button>
             <button id="slash" onclick="OperationCall(id)">/</button>
             <button id="seven" onclick="DigitCall(id)">7</button>
             <button id="eight" onclick="DigitCall(id)">8</button>
@@ -29,13 +29,11 @@
             <button id="plus" onclick="OperationCall(id)">+</button>
             <button id="double-zero" onclick="DigitCall(id)">00</button>
             <button id="zero" onclick="DigitCall(id)">0</button>
-            <button id="dot" onclick="OperationCall(id)">.</button>
+            <button id="dot" onclick="Dot(id)">.</button>
             <button id="equals" onclick="Calc(id)">=</button>
         </div>
     </div>
-
     <script src="index.js">    
-
     </script> 
 </body>
 </html>
