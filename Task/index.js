@@ -13,16 +13,21 @@ function DigitCall(id){
     text.value += digit;
 }
 
-function OperationCall(id)
-{               
-    const symbol = document.getElementById(id).innerText;
-    const last = text.value[text.value.length - 1];
+//HAZIR FUNC LARINI ARASDIRMISAM SADACE for ex: include and slice
 
-    if(last === "+" || last === "-" || last === "*" || last === "/" || last === "." || last === "%") return; 
+
+function OperationCall(id) {
+    const symbol = document.getElementById(id).innerText;
+    const last = text.value.slice(-1);
+
+    if ("+-*/%".includes(last)) {
+        text.value = text.value.slice(0, -1);
+    }
 
     text.value += symbol;
-    is = true;           
+    is = false;
 }
+
 
 function Clear(id)
 {
@@ -44,9 +49,10 @@ let is = true;
 let count = 0;
 
 function Dot() {
-    if (is) {
-        text.value += dot;  
-        count++;
+    const last = text.value.slice(-1); //burdada sonuncunu goturur
+
+    if (is && !"+-*/%".includes(last)) { // burda sonuncu simvolun operator olub olmadigini yoxalyirix
+        text.value += dot;
         is = false;
     }
 }
